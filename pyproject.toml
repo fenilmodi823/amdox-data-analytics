@@ -1,14 +1,9 @@
-[project]
-name = "datalumina-project-template"
-version = "0.1.0"
-description = "Add your description here"
-readme = "README.md"
-requires-python = ">=3.12"
-dependencies = [
-    "python-dotenv>=1.1.1",
-]
+[tool.ruff]
+# Ignore E402 (Import not at top) globally because we use sys.path hacks for scripts
+# Ignore F541 (f-string missing placeholders) as it is harmless
+ignore = ["E402", "F541"]
+line-length = 120
 
-[dependency-groups]
-dev = [
-    "ipykernel>=7.0.0",
-]
+[tool.ruff.per-file-ignores]
+# Ignore unused imports in __init__.py files (standard practice)
+"__init__.py" = ["F401"]
